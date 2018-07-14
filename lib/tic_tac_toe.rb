@@ -24,7 +24,16 @@ class TicTacToe
     puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
   end
   
-  
+  def play
+    while !over?
+      turn
+    end
+    if won?
+      puts "Congratulations #{winner(@board)}!"
+    elsif draw?
+      puts "Cat's Game!"
+    end
+  end
   def input_to_index(user_input)
     user_input.to_i - 1
   end
